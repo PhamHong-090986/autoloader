@@ -33,7 +33,7 @@
                             <button class="btn btn-success" type="subit">Cliquez</button>
                         </form>
                     </nav>
-</header>    <h1>Bienvenue dans mon Blog</h1>
+</header>    <h1>Bienvenue dans mon Projet 5</h1>
         <section class="container mx-auto mb-4">
         <div class="h1 font-italic text-center">
             <span>J'aime faire la cusine! <br/>
