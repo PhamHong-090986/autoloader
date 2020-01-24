@@ -1,12 +1,17 @@
 <?php 
-// récupérer tous les dernières posts de blog
-function getBillets()
-{
-    $db = dbConnect();
-   
-   $req = $db->query('SELECT * FROM t_billet ORDER BY BIL_DATE DESC LIMIT 0,5');
-return $req ;
 
+require ("Model\Manager.php");
+class Billet extends Manager
+{
+
+// récupérer tous les dernières posts de blog
+public function getBillets()
+{    
+     $sql = 'select BIL_ID as id, BIL_DATE as date,'
+                . ' BIL_TITRE as titre, BIL_CONTENU as contenu from t_billet'
+                . ' order by BIL_ID DESC LIMIT 0,6';
+    $billets = $this->executerRequete($sql);
+        return $billets;
 }
 // récupère un post selon BIL_ID
 function getPost($BIL_ID)
@@ -27,16 +32,7 @@ function getCommentaires($BIL_ID)
 $req->execute(array($BIL_ID));
 return $comments;
 }
-// connexion à la base de donnée
 
-function dbConnect()
-{
-    try {
-        $db = new PDO('mysql:host=localhost;dbname=hong;charset=utf8', 'root', '');
-        return $db;
-    }catch(Exception $e)
-    {
-        die('Erreur base de donnée: '. $e->getMessage());
-    }
+
+
 }
-

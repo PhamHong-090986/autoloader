@@ -1,28 +1,25 @@
-<?php include 'MenuView.php'; ?>
-    <?php 
-    
-    while ($post = $req->fetch()){
-        ?>
-    
-    <div class="news">
-        <h3>
-            <?php echo htmlspecialchars($post['BIL_TITRE']); ?>
-            <em>le <?php echo $post['BIL_DATE']; ?></em>
-        </h3>
-        
-        <p>
-        
-         <?= substr ($post['BIL_CONTENU'],0,500); ?><br/>
-         <em><a href ="View/postView.php?article=<?php echo $post ['BIL_ID']; ?>">Lire la suite</a></em>
-        
-        </p>
-    </div>
+<?php require_once ('MenuView.php'); ?>
+<?php ob_start(); ?>
     
     
-        <?php
-    }
-    $req->closeCursor();
+<?php foreach ($billets as $billet):
     ?>
+    <article>
+        <header>
+            <a href="<?= "index.php?action=billet&id=" . $billet['id'] ?>">
+                <h1 class="titreBillet"><?= $billet['titre'] ?></h1>
+            </a>
+            <time><?= $billet['date'] ?></time>
+        </header>
+        <p><?= substr($billet['contenu'], 0, 500) ?></p>
+        <em><a href ="index.php?article=<?php echo $billet ['id']; ?>">Lire la suite</a></em>
+    </article>
+    <hr />
+<?php endforeach; ?>
+    
+    </section>
+        
+<?php $content = ob_get_clean(); ?>
 <?php include 'footerView.php';?>
 
 

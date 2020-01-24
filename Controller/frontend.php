@@ -1,10 +1,12 @@
 <?php
 require ('Model\billets.php');
 require ('Model\commentaire.php');
+
 function listBillets()
 {
- $req = getBillets();
+ $test= $test->getBillets();
  require ('View\affichageAccueil.php');
+ 
 }
 function post()
 {
