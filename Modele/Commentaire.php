@@ -1,7 +1,7 @@
 <?php
 require_once 'Modele/Manager.php';
 
-class Commentaire extends Modele {
+class Commentaire extends Manager {
 // Renvoie la liste des commentaires associés à un billet
     public function getCommentaires($idBillet) {
         $sql = 'select COM_ID as id, COM_DATE as date,'

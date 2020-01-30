@@ -1,7 +1,7 @@
 <?php
 require_once 'Modele/Manager.php';
 
-class Billet extends Modele {
+class Billet extends Manager {
     // Renvoie la liste des billets du blog
      
     public function getBillets() {

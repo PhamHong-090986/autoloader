@@ -20,42 +20,48 @@
 <p>J'aime faire le voyage et j'aime le code aussi ! </p><br/>
 <div>
   
-<h1>Vous voulez faire une inscription?</h1>
-
-    <span> </span>
-
-    <div class="login">
-        <h2 class="text-center">Inscription</h2>
-        <form class="mb-5" action="#"method="post">
-            <div class="d-flex">
-                <label for="lastname">Nom de famille</label>
-                <input class="border" type="text" id="lastname" name="lastname" value=""/>
+<section id="contact" style="background: indianred;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="section-heading text-uppercase" style="color:wheat" id="contacter";>Contactez-nous</h2>
+                        <h3 class="section-subheading" style="color: wheat";>Pour tous renseignements complémentaires</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="contactForm" name="sentMessage" novalidate="novalidate" methode="POST" action="index.php?action=login">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="Nom" type="text" placeholder="Nom" required="required" data-validation-required-message="Veuillez renseigner un nom." aria-describedby="nomcontact">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="Prenom" type="tel" placeholder="Prenom" required="required" data-validation-required-message="Veuillez renseigner un numéro de téléphone." aria-describedby="telephonecontact">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="Email" type="email" placeholder="Email" required="required" data-validation-required-message="Veuillez renseigner une adresse email." aria-describedby="emailcontact">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="Message" placeholder="Message" required="required" data-validation-required-message="Veuillez renseigner un message."></textarea>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Envoyer</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="d-flex">
-                <label for="firstname">Prénom</label>
-                <input class="border" type="text" id="firstname" name="firstname" value=""/>
-            </div>
-            <div class="d-flex">
-                <label for="email">Votre Email</label>
-                <input class="border" type="email" id="email" name="email" value=""/>
-            </div>
-            <div class="d-flex">
-                <label for="username">Pseudo</label>
-                <input class="border" type="text" id="username" name="username" value=""/>
-            </div>
-            <div class="d-flex">
-                <label for="password">Mot de passe</label>
-                <input class="border" type="password" id="password" name="password"/>
-            </div>
-            <div class="d-flex">
-                <label for="confirm_password">Confirmer votre mot de passe</label>
-                <input class="border" type="password" id="confirm_password" name="confirm_password"/>
-            </div>
-            <div class="text-center">
-                <button class="btn btn-success" type="submit" name="register">S'inscrire</button>
-            </div>
-        </form>
-    </div>
     
+        </section>
 </body>
 </html>

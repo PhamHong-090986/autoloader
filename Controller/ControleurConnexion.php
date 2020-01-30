@@ -21,13 +21,13 @@ class ControleurConnexion {
     }
 // Affiche la liste de tous les billets du blog
     public function connexion() {
-        // détermine la nouvelle vue. Appelle la protected function BuildView du Controller.php l.40
+        // détermine la nouvelle vue. 
         $vue = new Vue("Connexion");
         $vue->generer(array());
     }
     public function login($pseudo, $password) {
         $connexion = $this->connexion->getConnect($pseudo, $password);
-        // détermine la nouvelle vue. Appelle la protected function BuildView du Controller.php l.40
+        // détermine la nouvelle vue.
         
         //$vue = new Vue("Admin");
         //vue->generer(array('billets' => $billets));

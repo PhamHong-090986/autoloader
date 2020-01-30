@@ -13,6 +13,7 @@ class Routeur {
     private $ctrlConnexion;
     private $ctrlAdmin;
     private $ctrlCommentaire;
+    private $ctrlContact;
     public function __construct() {
         $this->ctrlAccueil = new ControleurAccueil();
         $this->ctrlBillet = new ControleurBillet();
@@ -20,6 +21,7 @@ class Routeur {
         $this->ctrlConnexion = new ControleurConnexion();
         $this->ctrlAdmin = new ControleurAdmin();
         $this->ctrlCommentaire = new ControleurCommentaire();
+        $this->ctrlContact = new ControlleurContact();
     }
     // Route une requête entrante : exécution l'action associée
     public function routerRequete() {
@@ -54,6 +56,13 @@ class Routeur {
                     $pseudo = $this->getParametre($_POST, 'pseudo');
                     $password = $this->getParametre($_POST, 'password');
                     $this->ctrlConnexion->login($pseudo,$password);
+                }
+                else if ($_GET['action'] == 'contact') {
+                    $nom = $this->getParametre($_POST, 'nom');
+                    $prenom = $this->getParametre($_POST, 'prenom');
+                    $email = $this->getParametre($_POST, 'email');
+                    $message = $this->getParametre($_POST, 'message');
+                    $this->ctrlContact->contact($nom,$prenom, $email, $message);
                 }
                 else if ($_GET['action'] == 'modifier') {
                     $idBillet = intval($this->getParametre($_GET, 'id'));
