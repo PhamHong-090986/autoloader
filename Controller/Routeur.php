@@ -5,6 +5,7 @@ require_once 'Controller/ControleurArticle.php';
 require_once 'Controller/ControleurConnexion.php';
 require_once 'Controller/ControleurAdmin.php';
 require_once 'Controller/ControleurCommentaire.php';
+require_once 'Controller/ControlleurContact.php';
 
 class Routeur {
     private $ctrlAccueil;

@@ -2,7 +2,7 @@
 class Contact extends Manager{
     
         /**
-         * all les contacts
+         * les variables pour all les contacts
          */
         const properties = array(
             "Id" => "id",
@@ -12,7 +12,7 @@ class Contact extends Manager{
             "Message" => "message"
         );
         // pour enregistre les informations du formule contact dans la base de donnée
-        public function register (Contact $contact)
+        public function register(Contact $contact)
         {
             $nom = $contact->getNom();
             $prenom = $contact->getPrenom();
@@ -22,8 +22,8 @@ class Contact extends Manager{
     
             try{
                 $db = $this->dbConnect();
-                $register = $db->prepare('INSERT INTO contact(nom, prenom, email, message) VALUES (?, ?, ?,?)');
-                $contact = $register->executerRequete($register, array($nom, $prenom, $email, $message));
+                $register = $db->prepare('INSERT INTO contact(nom, prenom, email, message) VALUES ($nom, $prenom, $email, $message)');
+                $contact = $this->executerRequete($register, array($nom, $prenom, $email, $message));
             } catch(\Exception $e){
                 $contact = 'ne valide pas du formulaire de contact';
             }

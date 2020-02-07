@@ -30,7 +30,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <form id="contactForm" name="sentMessage" novalidate="novalidate" methode="POST" action="index.php?action=login">
+                        <form id="contactForm" name="sentMessage" novalidate="novalidate" methode="POST" action="index.php?action=contact">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
