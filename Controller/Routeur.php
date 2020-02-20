@@ -1,11 +1,11 @@
 <?php
-require_once 'Controller/ControleurAccueil.php';
-require_once 'Controller/ControleurBillet.php';
-require_once 'Controller/ControleurArticle.php';
-require_once 'Controller/ControleurConnexion.php';
-require_once 'Controller/ControleurAdmin.php';
-require_once 'Controller/ControleurCommentaire.php';
-require_once 'Controller/ControlleurContact.php';
+include 'Controller/ControleurAccueil.php';
+include 'Controller/ControleurBillet.php';
+include 'Controller/ControleurArticle.php';
+include 'Controller/ControleurConnexion.php';
+include 'Controller/ControleurAdmin.php';
+include 'Controller/ControleurCommentaire.php';
+include 'Controller/ControlleurContact.php';
 
 class Routeur {
     private $ctrlAccueil;
@@ -26,9 +26,10 @@ class Routeur {
     }
     // Route une requête entrante : exécution l'action associée
     public function routerRequete() {
+        $page =  $_GET['action'];
         try {
-            if (isset($_GET['action'])) {
-                if ($_GET['action'] == 'billet') {
+            if (isset( $page)) {
+                if ( $page == 'billet') {
                     $idBillet = intval($this->getParametre($_GET, 'id'));
                     if ($idBillet != 0) {
                         $this->ctrlBillet->billet($idBillet);
@@ -36,36 +37,36 @@ class Routeur {
                     else
                         throw new Exception("Identifiant de billet non valide");
                 }
-                else if ($_GET['action'] == 'commenter') {
+                else if ( $page == 'commenter') {
                     $auteur = $this->getParametre($_POST, 'auteur');
                     $contenu = $this->getParametre($_POST, 'contenu');
                     $idBillet = $this->getParametre($_POST, 'id');
                     $this->ctrlBillet->commenter($auteur, $contenu, $idBillet);
                 }
-                else if ($_GET['action'] == 'chapitre') {
+                else if ( $page == 'chapitre') {
                     $this->ctrlChapitre->article();
                 }
-                else if ($_GET['action'] == 'connexion') {
+                else if ( $page == 'connexion') {
                     $this->ctrlConnexion->connexion();
                 }
-                else if ($_GET['action'] == 'commentaire') {
+                else if ( $page == 'commentaire') {
                     
                     $this->ctrlCommentaire->commentaire();
                 }
                 
-                else if ($_GET['action'] == 'login') {
+                else if ( $page == 'login') {
                     $pseudo = $this->getParametre($_POST, 'pseudo');
                     $password = $this->getParametre($_POST, 'password');
                     $this->ctrlConnexion->login($pseudo,$password);
                 }
-                else if ($_GET['action'] == 'contact') {
-                    $nom = $this->getParametre($_POST, 'nom');
-                    $prenom = $this->getParametre($_POST, 'prenom');
-                    $email = $this->getParametre($_POST, 'email');
-                    $message = $this->getParametre($_POST, 'message');
+                else if (htmlspecialchars( $page) == 'contact') {
+                    $nom = $this-> getParametre ($_POST, 'nom');
+                    $prenom = $this->getParametre ($_POST, 'prenom');
+                    $email = $this->getParametre ($_POST, 'email');
+                    $message = $this->getParametre ($_POST, 'message');
                     $this->ctrlContact->contact($nom,$prenom, $email, $message);
                 }
-                else if ($_GET['action'] == 'modifier') {
+                else if ( $page == 'modifier') {
                     $idBillet = intval($this->getParametre($_GET, 'id'));
                     if ($idBillet != 0) {
                         $this->ctrlAdmin->modifier($idBillet);
@@ -73,7 +74,7 @@ class Routeur {
                     else
                         throw new Exception("Identifiant de billet non valide");
                 }
-                else if ($_GET['action'] == 'save') {
+                else if ( $page == 'save') {
                     $contenu = $this->getParametre($_POST, 'contenu2');
                     $idBillet = intval($this->getParametre($_GET, 'id'));
                     if ($idBillet != 0) {
@@ -82,7 +83,7 @@ class Routeur {
                     else
                         throw new Exception("Identifiant de billet non valide");
                 }
-                else if ($_GET['action'] == 'supprimer') {
+                else if ( $page == 'supprimer') {
                     $idBillet = intval($this->getParametre($_GET, 'id'));
                     if ($idBillet != 0) {
                         $this->ctrlAdmin->delete($idBillet);
@@ -90,10 +91,10 @@ class Routeur {
                     else
                         throw new Exception("Identifiant de billet non valide");
                 }
-                else if ($_GET['action'] == 'ajouter') {
+                else if ( $page == 'ajouter') {
                     $this->ctrlAdmin->ajouter();
                 }
-                else if ($_GET['action'] == 'saveNew') {
+                else if ( $page == 'saveNew') {
                     $titre = $this->getParametre($_POST, 'titre');
                     $contenu = $this->getParametre($_POST, 'contenu');
                     $this->ctrlAdmin->saveNewBillet($titre, $contenu);

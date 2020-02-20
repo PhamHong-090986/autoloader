@@ -1,7 +1,7 @@
 <?php 
-require_once 'Modele/User.php';
-require_once 'Modele/Billet.php';
-require_once 'Vue/Vue.php';
+include 'Modele/User.php';
+include 'Modele/Billet.php';
+include 'Vue/Vue.php';
 //session_start();
 //if (isset($_POST['submit'])) {
 //    $loginl = $_POST['login'];

@@ -1,6 +1,6 @@
 <?php 
-require_once 'Modele/Contact.php';
-require_once 'Vue/Vue.php';
+include 'Modele/Contact.php';
+include 'Vue/Vue.php';
 
 class ControlleurContact{
     private $contact;

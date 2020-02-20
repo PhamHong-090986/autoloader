@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- ajout du menu -->
-    <?php require_once ('menu.php');?>
+    <?php include ('menu.php');?>
 
     <!-- contenu de la page -->
     <div id="mainContent">
@@ -16,7 +16,7 @@
     </div>
 
     <!-- ajout du footer -->
-    <?php require_once ('footer.php');?>
+    <?php include ('footer.php');?>
 
 </body>
 

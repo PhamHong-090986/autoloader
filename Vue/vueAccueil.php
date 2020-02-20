@@ -18,7 +18,7 @@
   J'aime la cusine 
 </p><br/>
 <p>J'aime faire le voyage et j'aime le code aussi ! </p><br/>
-<div>
+</div>
   
 <section id="contact" style="background: indianred;">
             <div class="container">
@@ -29,35 +29,56 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <form id="contactForm" name="sentMessage" novalidate="novalidate" methode="POST" action="index.php?action=contact">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input class="form-control" id="Nom" type="text" placeholder="Nom" required="required" data-validation-required-message="Veuillez renseigner un nom." aria-describedby="nomcontact">
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control" id="Prenom" type="tel" placeholder="Prenom" required="required" data-validation-required-message="Veuillez renseigner un numéro de téléphone." aria-describedby="telephonecontact">
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control" id="Email" type="email" placeholder="Email" required="required" data-validation-required-message="Veuillez renseigner une adresse email." aria-describedby="emailcontact">
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <textarea class="form-control" id="Message" placeholder="Message" required="required" data-validation-required-message="Veuillez renseigner un message."></textarea>
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 text-center">
-                                    <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Envoyer</button>
-                                </div>
-                            </div>
-                        </form>
+                    <div class="col-md">
+                    <form method="post">
+  <table width="44%" height="317" border="0">
+    <tr>
+      <td width="14%" align="left" valign="middle">
+	      <font size="3" face="Verdana, Arial, Helvetica, sans-serif">Votre nom :</font>
+      </td>
+      <td width="86%">
+	      <input type="text" name="nom"  size="50" value="<?php echo $contact->nom; ?>" > 
+	    </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+	  <font size="3" face="Verdana, Arial, Helvetica, sans-serif">Votre mail :</font></td>
+      <td>	    
+	      <input type="text" name="mail" size="50" value="<?php echo $contact->mail; ?>" >  
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        <font size="3" face="Verdana, Arial, Helvetica, sans-serif">Tel :</font></td>
+      <td>  
+	      <input type="text" name="tel" size="20" value="<?php echo $contact->tel; ?>" > 
+      </td>
+    </tr>
+      <td align="left" valign="middle">
+	      <font size="3" face="Verdana, Arial, Helvetica, sans-serif">Sujet :</font>
+      </td>
+      <td>
+	      <input type="text" name="sujet" size="50" value="<?php echo $contact->sujet; ?>" > 
+      </td>
+    </tr>
+    <tr>
+      <td height="181" valign="top">
+	      <font size="3" face="Verdana, Arial, Helvetica, sans-serif">Message : </font>
+      </td>
+      <td valign="top">  
+         <textarea name="message"  cols="47" rows="10" ><?php echo $contact->message; ?></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        &nbsp;  
+      </td>
+      <td>
+	       <input type="submit"  name="envoyer" value="Envoyer">
+      </td>
+    </tr>
+  </table>
+</form>
                     </div>
                 </div>
             </div>
