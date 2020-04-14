@@ -1,7 +1,7 @@
 <?php 
-require_once 'Modele/User.php';
-require_once 'Modele/Billet.php';
-require_once 'Vue/Vue.php';
+include 'Modele/User.php';
+include 'Modele/Billet.php';
+include 'Vue/Vue.php';
 //session_start();
 //if (isset($_POST['submit'])) {
 //    $loginl = $_POST['login'];
@@ -21,13 +21,13 @@ class ControleurConnexion {
     }
 // Affiche la liste de tous les billets du blog
     public function connexion() {
-        // détermine la nouvelle vue. Appelle la protected function BuildView du Controller.php l.40
+        // détermine la nouvelle vue. 
         $vue = new Vue("Connexion");
         $vue->generer(array());
     }
     public function login($pseudo, $password) {
         $connexion = $this->connexion->getConnect($pseudo, $password);
-        // détermine la nouvelle vue. Appelle la protected function BuildView du Controller.php l.40
+        // détermine la nouvelle vue.
         
         //$vue = new Vue("Admin");
         //vue->generer(array('billets' => $billets));

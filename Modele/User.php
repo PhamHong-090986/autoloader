@@ -26,15 +26,13 @@ class Connexion extends Manager {
             throw new \Exception("Aucun utilisateur ne correspond aux identifiants fournis.");
         }
     }
-
-
     private function dbConnect()
     {
         $db = new PDO('mysql:host=localhost;dbname=hong;charset=utf8', 'Camille', '123456');
         return $db;
     }
 
-    public function erreur($msgErreur) {
+        public function erreur($msgErreur) {
         $vue = new Vue("Erreur");
         $vue->generer(array('msgErreur' => $msgErreur));
     }

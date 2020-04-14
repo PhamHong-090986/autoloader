@@ -1,7 +1,7 @@
 <?php
-require_once 'Modele/Manager.php';
+include 'Modele/Manager.php';
 
-class Commentaire extends Modele {
+class Commentaire extends Manager {
 // Renvoie la liste des commentaires associés à un billet
     public function getCommentaires($idBillet) {
         $sql = 'select COM_ID as id, COM_DATE as date,'
@@ -27,28 +27,6 @@ class Commentaire extends Modele {
         return $this->executerRequete($sql, array(
                 'idCommentaire' => $idCommentaire,
             ))->rowCount() == 1;
-    }
-
-
-    public function ajouterUnSignalement($id)
-    {
-        $sql = 'update T_COMMENTAIRE SET COM_SIGNALEMENT = COM_SIGNALEMENT + 1 WHERE COM_ID = :id';
-        $this->executerRequete($sql, array('id' => $id));
-    }
-
-    public function supprimerSignalement($id)
-    {
-        $sql = 'update T_COMMENTAIRE SET COM_SIGNALEMENT = 0 WHERE COM_ID = :id';
-        $this->executerRequete($sql, array('id' => $id));
-    }
-
-    
-    public function getNombreSignalements()
-    {
-        $sql = 'select count(*) AS nbSignalements FROM T_COMMENTAIRE WHERE COM_SIGNALEMENT != 0';
-        $reponse = $this->executerRequete($sql);
-        $ligne = $reponse->fetch();
-        return $ligne['nbSignalements'];
     }
 
     public function getAllCommentaires() {

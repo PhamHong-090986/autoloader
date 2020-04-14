@@ -2,8 +2,8 @@
     ini_set('display_errors', 'on');
     error_reporting(E_ALL);
 
-    define('HOST', 'http://localhost:81/www/HONG/'); // js, css, images > fichiers publiques avec url
-    define('ROOT', 'C:/xampp/htdocs/www/HONG/');
+    define('HOST', 'http://localhost:81/www/projet5/'); // js, css, images > fichiers publiques avec url
+    define('ROOT', 'C:/xampp/htdocs/www/projet5/');
 
 
     define('CONTROLLER', ROOT.'Controller/');

@@ -1,6 +1,6 @@
 <?php
-require_once 'Modele/Commentaire.php';
-require_once 'Vue/Vue.php';
+include 'Modele/Commentaire.php';
+include 'Vue/Vue.php';
 
 class ControleurCommentaire {
     private $commentaire;
